@@ -1,0 +1,17 @@
+{
+  "id" : .id,
+  "awb" : .awb,
+  "forwarder": .forwarder,
+  "code" : .code[0 : 4],
+  "timestamp" : .timestamp,
+  "location" : .location,
+  "created" : .created,
+  "createdAt" : .createdAt,
+  "comments": .comments,
+  "affectedPieces": .affectedPieces,
+  "totalPieces": .totalPieces,
+  "affectedWeight": .affectedWeight,
+  "totalWeight": .totalWeight,
+  "resolved" : .resolved,
+  "mopProcess": .mopProcess
+}

@@ -1,0 +1,101 @@
+openapi: 3.0.1
+info:
+  title: Exception Event API
+  description: |
+    ## Overview
+    The exception event API enables companies in the logistics chain to report exception events that their partners in the logistics chain can subscribe to. The partners can subscribe to these events using Logistics Event Hub's webhook APIs. The Exception event is OneRecord compliant.
+
+  version: "0.1"
+servers:
+  - url: http://localhost:8000/ingress
+    description: Local server
+paths:
+  /event:
+    post:
+      tags:
+        - Exception Event
+      summary: Create an exception event
+      parameters:
+      - name: topic
+        in: header
+        required: true
+        schema:
+          type: string
+          example: exception
+      requestBody:
+        description: Create application payload
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exception'
+            examples:
+              application:
+                $ref: '#/components/examples/Exception'
+      responses:
+        "201":
+          description: Event successfully created
+      security:
+      - oauth2Scheme: []
+components:
+  schemas:
+    Exception:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        awb:
+          type: string
+        forwarder:
+          type: string
+        code:
+          type: string
+        timestamp:
+          type: string
+          format: dateTime
+        location:
+          type: string
+        created: 
+          type: string
+        createdAt: 
+          type: string
+        comments:
+          type: string
+        affectedPieces: 
+          type: number
+        totalPieces:
+          type: number
+        affectedWeight:
+          type: number
+        totalWeight:
+          type: number
+        resolved:
+          type: boolean
+        mopProcess: 
+          type: number
+  examples:
+    Exception:
+      value:
+        id: 463063e4-724e-45d7-ad58-004de9b0ad26
+        awb: AFK-1231425
+        forwarder: Scan Global Logistics
+        code: CXCR01
+        timestamp: "2022-05-09T13:49:00"
+        location: location details
+        created: "2022-05-09T13:49:00"
+        createdAt: location details
+        comments: this is about the exception
+        affectedPieces: 4
+        totalPieces: 10
+        affectedWeight: 40
+        totalWeight: 100
+        resolved: true
+        mopProcess: 9.8
+  securitySchemes:
+    oauth2Scheme:
+      type: oauth2
+      scheme: oauth2Scheme
+      flows:
+        password:
+          tokenUrl: http://localhost:8800/auth/realms/webhookie/protocol/openid-connect/token
+          scopes: {}

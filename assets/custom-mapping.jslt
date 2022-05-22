@@ -1,0 +1,22 @@
+let lookup = {
+  "CXCR01" : "Pieces Missing",
+  "CXCR02" : "lakdfasdkj"
+}
+
+{
+  "id" : .id,
+  "awb" : .awb,
+  "forwarder": .forwarder,
+  "code" : get-key($lookup, .code),
+  "timestamp" : .timestamp,
+  "location" : .location,
+  "created" : .created,
+  "createdAt" : .createdAt,
+  "comments": .comments,
+  "affectedPieces": .affectedPieces,
+  "totalPieces": .totalPieces,
+  "affectedWeight": .affectedWeight,
+  "totalWeight": .totalWeight,
+  "resolved" : .resolved,
+  "mopProcess": .mopProcess
+}
