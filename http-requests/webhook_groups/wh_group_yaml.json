@@ -1,0 +1,12 @@
+{
+    "consumerGroups": [
+        "Customers",
+        "Suppliers"
+    ],
+    "providerGroups": [
+        "Product Management"
+    ],
+    "consumerAccess": "PUBLIC",
+    "providerAccess": "ALL",
+    "asyncApiSpec": "asyncapi: 2.1.0\ninfo:\n  # Webhook Group Name\n  title: Order Management\n  # Webhook Group Version - could show as a pill\n  version: 1.0.0\n  description: The description for the webhook group\n  # could do something similar to https://playground.asyncapi.io/ - copy paste this specification into left hand side\n  termsOfService: https://webhooks.mycompany.com/terms/\n  contact:\n    name: Webhook Group Support\n    url: https://mysupport.mycompany.com/\n    email: support@mycompany.com\n  license:\n    name: Apache 2.0\n    url: http://www.apache.org/licenses/LICENSE-2.0.html\nservers:\n  production:\n    # this url is not important. Only really need this section for the security part.\n    url: webhooks.mycompany.com\n    protocol: http\n    description: This is \"My Company\" webhook instance.\n    security:\n      # refers the securitySchemes below. This is the allowed Security options.\n      - hmacSig: []\n      \nchannels:\n  # Webhook name / topic\n  Order:\n    # description of webhook\n    description: The description of the webhook\n    subscribe:\n      tags:\n        - name: Orders\n      message:\n        $ref: '#/components/messages/Order'\ncomponents:\n  messages:\n    Order:\n      contentType: application/json\n      payload:\n        type: object\n        properties:\n          id:\n            type: string\n            description: ID of the Order\n          email:\n            type: string\n            format: email\n            description: Email of the customer\n      traits:\n        - $ref: '#/components/messageTraits/commonHeaders'\n  messageTraits:\n    commonHeaders:\n      # headers\n      headers:\n        type: object\n        properties:\n          # header name\n          traceID:\n            type: string\n            format: uuid\n            description: The Trace ID of the original message.\n          spanID:\n            type: string\n            format: uuid\n            description: The Span ID for the specific subscription message.\n          Authorization:\n            type: string\n            description: The HMAC signature\n  securitySchemes:\n    # do not delete\n    hmacSig:\n      type: symmetricEncryption\n      description: HMAC Signature\n"
+}

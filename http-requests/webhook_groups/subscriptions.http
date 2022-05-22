@@ -1,0 +1,6 @@
+GET http://{{host}}/webhookgroups/topics
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+

@@ -1,0 +1,3 @@
+GET http://{{host}}/user
+Accept: application/json
+Authorization: Bearer {{token}}

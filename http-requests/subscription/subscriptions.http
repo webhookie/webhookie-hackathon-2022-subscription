@@ -1,0 +1,122 @@
+POST {{host}}/subscriptions
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "topic": "NewOrder",
+    "callbackId": "{{callback_id}}"
+}
+> extract-subscription-id.js
+
+###
+
+GET {{host}}/subscriptions
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/subscriptions?callbackId=60362110d7582d3e57824b65
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/subscriptions?role=PROVIDER
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/subscriptions/6024a8630e509716c2cf7943
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+DELETE {{host}}/subscriptions/{{subscription_id}}
+Accept: text/plain
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+PUT {{host}}/subscriptions/6020024e130d383b33d6bec3
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "callbackId": "602002dc130d383b33d6bec7"
+}
+
+###
+
+POST {{host}}/subscriptions/6036216bd7582d3e57824b69/validate
+Accept: text/plain
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "payload": "{\"name\": \"Me new Endpoint - 5\",\n\"path\": \"/foo-5\"\n}",
+    "headers": {
+        "Content-Type": ["application/json"],
+        "Accept": ["*/*"]
+    }
+}
+
+###
+
+POST {{host}}/subscriptions/603634d5d7582d3e57824b6b/activate
+Accept: text/plain
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST {{host}}/subscriptions/603634d5d7582d3e57824b6b/deactivate
+Accept: text/plain
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "reason": "Testing...."
+}
+
+###
+
+POST {{host}}/subscriptions/{{subscription_id}}/suspend
+Accept: text/plain
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "reason": "Test Suspend"
+}
+
+###
+
+POST {{host}}/subscriptions/{{subscription_id}}/unsuspend
+Accept: text/plain
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "reason": "Test Unsuspend"
+}
+
+###
+
+POST {{host}}/subscriptions/603635b8d7582d3e57824b71/unblock
+#POST {{host}}/subscriptions/60362125d7582d3e57824b66/unblock
+Accept: text/plain
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+

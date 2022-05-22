@@ -1,0 +1,79 @@
+POST {{host}}/callbacks/test
+Accept: text/plain, application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "httpMethod": "POST",
+    "url": "http://localhost:9000/wh/weather",
+    "payload": "{\"name\": \"Me new Endpoint - 5\",\n\"path\": \"/foo-5\"\n}",
+    "headers": {
+        "Content-Type": ["application/json"],
+        "Accept": ["*/*"],
+        "Authorization": ["Bearer {{token}}"]
+    }
+}
+
+###
+
+POST {{host}}/callbacks/test
+Accept: text/plain, application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "httpMethod": "POST",
+    "url": "http://10.0.0.101:9001/wh/product",
+    "payload": "{\"name\": \"Me new Endpoint - 5\",\n\"path\": \"/foo-5\"\n}",
+    "headers": {
+        "Content-Type": ["application/json"],
+        "Accept": ["*/*"],
+        "sample-id": "1",
+        "traceID": "1"
+    }
+}
+
+###
+
+POST {{host}}/callbacks/test
+Accept: text/plain, application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "httpMethod": "POST",
+    "url": "http://192.168.1.101:9004/wh/weather",
+    "payload": "This is a test",
+    "secret": {
+        "secret": "key Id",
+        "keyId": "key Id"
+    },
+    "headers": {
+        "Content-Type": [
+            "text/plain"
+        ],
+        "Accept": [
+            "*/*"
+        ]
+    }
+}
+
+###
+
+POST {{host}}/callbacks/test
+Accept: text/plain, application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "httpMethod": "POST",
+    "url": "http://localhost:9002/wh/weather",
+    "payload": "Hi There!",
+    "headers": {
+        "Content-Type": ["text/plain"],
+        "Accept": ["*/*"],
+        "Authorization": ["Bearer {{token}}"]
+    }
+}
+
+###

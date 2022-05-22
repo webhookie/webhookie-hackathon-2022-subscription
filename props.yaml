@@ -1,0 +1,24 @@
+container:
+  name: webhookie-subscription-sample
+  image: docker.io/hookiesolutions/webhookie-subscription-sample:1
+  memory-limit: 1024
+  port:
+    - 9000
+task:
+  name: subscription-task-def
+  size:
+    memory: 4
+    cpu: 2
+service:
+  name: subscription-service
+  lb:
+    type: alb
+    port: 443
+cluster:
+  name: subscription-cluster
+
+
+  
+  
+  
+

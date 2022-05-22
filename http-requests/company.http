@@ -1,0 +1,54 @@
+POST {{host}}/company
+Accept: application/json
+Content-Type: application/json
+
+< company.json
+
+###
+
+GET {{host}}/company/s/5fc9b096a3b9e573df7fb15e
+Accept: application/json
+
+###
+
+PATCH {{host}}/subscriptions/subscriptions/6024a8630e509716c2cf7943/unblock
+Accept: text/plain
+Authorization: Bearer {{token}}
+
+###
+
+PATCH {{host}}/subscriptions/5fdaffd2c3d8421164f9d87a/unblock
+Accept: text/plain
+Authorization: Bearer {{token}}
+
+###
+
+PATCH {{host}}/subscriptions/5fdaffd2c3d8421164f9d87c/unblock
+Accept: text/plain
+Authorization: Bearer {{token}}
+
+###
+
+PATCH {{host}}/subscriptions/6020ae37f0c1c6335ea183fa/unblock
+Accept: text/plain
+Authorization: Bearer {{token}}
+
+###
+
+PATCH {{host}}/subscriptions/5feafbd1980b1000430b0c4f/block
+Accept: text/plain
+Authorization: Bearer {{token}}
+
+###
+
+POST {{host}}/application/5fdb49eeea05f8215f6f823f/subscription
+Accept: application/json
+Content-Type: application/json
+
+{
+    "name": "",
+    "topic": "",
+    "callbackUrl": "url!",
+    "httpMethod": "PUT"
+}
+

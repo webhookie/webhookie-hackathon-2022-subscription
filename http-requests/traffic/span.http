@@ -1,0 +1,81 @@
+GET {{host}}/traffic/span
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/traffic/trace/a2263e75-3873-44b9-a2d9-5a1e3b239269/spans
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/traffic/span?to=2021-03-19T00:21:47.577Z
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/traffic/span?traceId=5c7&application=My&entity=Hookie&callback=900
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/traffic/span?traceId=5c7&application=My&entity=Hookie&callback=900
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/traffic/span?page=0&size=2&sort=latestResult.retryNo,DESC
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+
+GET {{host}}/traffic/span?page=0&size=2&sort=subscription.topic
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/traffic/span/479cdefa-f992-479b-a92a-bf0cc1b7530d/response
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/traffic/span/627373cc-4445-42dc-922b-4768b21650b9/response
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST http://localhost:8080/traffic/span/resend
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+    "4b32d28f-d13c-4379-8088-000e8e7589b6"
+    ,"3b043e74-cc79-4c88-8250-a9c0d65324b0"
+    ,"cff6ccdd-4f1f-4293-ac2a-91a5236647fc"
+    ,"39bf9426-e068-461b-b5d2-e97bb3b358c6"
+    ,"800f6b50-1fa4-49c0-97bb-f29176014b03"
+    ,"4ac94f7a-e4a0-4b4d-913e-df08aba188c5"
+    ,"00890ac4-5cb1-4d31-9398-78b397edb3a3"
+    ,"20496eaa-4215-4201-bed1-2087bb8e53cc"
+    ,"2350786f-67a3-4f96-8aae-cdec62f1d70a"
+    ,"11fde4dc-c826-4c5b-9016-0f54126648ef"
+    ,"1451f932-9014-42b9-b39f-96824a58e556"
+    ,"4289d80c-b8da-4a6d-98aa-03ddf9fdeb8e"
+    ,"2d86ddfd-5645-4e51-b1fa-6591266eb7a5"
+    ,"d6c66246-051b-433a-9158-57bd1730f2f5"
+    ,"9114e43f-5e26-422d-8ee8-baff9262f663"
+    ,"5951b55f-d34b-41ae-9f5b-726efc2ccf45"
+    ,"84f4afe6-8f27-4459-9eee-c1caa7dcc006"
+    ,"302277f4-edf6-4793-a04c-600c9d63d56f"
+    ,"8ffbc9a5-7fa4-4e10-b374-869c51032ae8"
+    ,"a139c27a-73f2-4834-b947-0279bbbf52ef"
+]

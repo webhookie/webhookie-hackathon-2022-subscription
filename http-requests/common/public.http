@@ -1,0 +1,2 @@
+GET http://{{host}}/public/config
+Accept: application/json

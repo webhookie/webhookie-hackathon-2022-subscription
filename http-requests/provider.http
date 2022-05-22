@@ -1,0 +1,10 @@
+GET {{host}}/provider/entities HTTP/1.1
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+GET {{host}}/provider/applications?entity=Hookie Solutions HTTP/1.1
+Authorization: Bearer {{token}}
+Accept: application/json
+

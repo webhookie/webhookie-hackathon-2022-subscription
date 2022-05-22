@@ -1,0 +1,57 @@
+POST http://localhost:8800/auth/realms/webhookie/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+client_id=webhookie_client&password=passwd1&username=webhookie_admin&grant_type=password
+
+> response-handlers/token.js
+
+###
+
+GET http://localhost:8000/auth/realms/webhookie/protocol/openid-connect/userinfo
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST https://webhookie.au.auth0.com/oauth/token HTTP/1.1
+Accept: application/json
+#Authorization: Basic KbsOSWkS6GWvmh20mg24UdnrKwgUMfvK FywaWxU2mDheCtN5Q6vVHnNIKeSm9shwcILGoeiJ13iHVx63RXeQFEAWEn4Sxe2H
+Authorization: Basic nvKDmIK9Q5Zw1UKwpON8LE3tg9vZcXb4 -DvNR2P88D3bNrcj7Z1huKbaFi7WmsQJCtwU-Zl-8oYEEgXoya_jXqdtP1cQZf94
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+password=Webhookie1@&username=arthur@webhookie.com&grant_type=password
+
+> response-handlers/token.js
+
+###
+
+POST https://webhookie.au.auth0.com/oauth/token HTTP/1.1
+Accept: application/json
+#Authorization: Basic KbsOSWkS6GWvmh20mg24UdnrKwgUMfvK FywaWxU2mDheCtN5Q6vVHnNIKeSm9shwcILGoeiJ13iHVx63RXeQFEAWEn4Sxe2H
+Authorization: Basic nvKDmIK9Q5Zw1UKwpON8LE3tg9vZcXb4 -DvNR2P88D3bNrcj7Z1huKbaFi7WmsQJCtwU-Zl-8oYEEgXoya_jXqdtP1cQZf94
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+password=weqzox-teGkec-zithu8&username=bidadh@gmail.com&grant_type=password&audience=http://localhost:8080&scope=offline_access
+
+
+
+> response-handlers/token.js
+
+###
+
+GET https://webhookie.au.auth0.com/userinfo
+Accept: application/json
+Authorization: Bearer 9TwfK9wuuYaanpuF003G5lpsEjHUfg5W
+
+
+###
+
+POST https://dev-1807019.okta.com/oauth2/default/v1/token HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic 0oa2w5ur9pFnyGW3W5d7 2JWxnSDB1SbqriBvVLDue8fo9i-sXkkwgNafIyh0
+
+grant_type=client_credentials&scope=mod_custom
+
+> response-handlers/token.js

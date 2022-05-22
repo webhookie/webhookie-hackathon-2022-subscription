@@ -1,0 +1,123 @@
+GET {{host}}/traffic
+Accept: text/plain, application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/traffic/span
+Accept: text/plain, application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST {{host}}/consumer/publish
+Accept: text/plain, application/json
+Content-Type: application/json
+wh-topic: Weather
+wh-trace-id: 32452345dh344553
+Authorization: Bearer {{token}}
+
+< data.json
+
+###
+
+POST {{host}}/consumer/publish
+Accept: text/plain, application/json
+Content-Type: application/json
+wh-topic: Signature
+wh-trace-id: 32452345dh344553
+Authorization: Bearer {{token}}
+
+< data.json
+
+###
+
+POST {{host}}/consumer/publish
+Accept: text/plain
+Content-Type: application/xml
+wh-topic: Product
+wh-trace-id: 32452345dh344553
+Authorization: Bearer {{token}}
+
+< data.xml
+
+###
+
+POST {{host}}/consumer/publish
+Accept: text/plain
+Content-Type: application/json
+wh-topic: Product
+wh-trace-id: 32452345dh344553
+wh-authorized-subscriber: 1
+wh-authorized-subscriber: 5
+Authorization: Bearer {{token}}
+
+< data.json
+
+###
+
+POST {{host}}/consumer/publish
+Accept: text/plain
+Content-Type: application/json
+wh-topic: Product
+wh-trace-id: 32452345dh344553
+wh-authorized-subscriber: 1
+wh-authorized-subscriber: 2
+Authorization: Bearer {{token}}
+
+< data.json
+
+###
+
+POST {{host}}/consumer/publish
+Accept: text/plain
+Content-Type: application/xml
+wh-topic: Weather
+wh-trace-id: 32452345dh344553
+wh-authorized-subscriber: Hookie Solutions
+wh-authorized-subscriber: Redpoll Solutions
+wh-authorized-subscriber: IDEA Baker
+Authorization: Bearer {{token}}
+
+< data.xml
+
+###
+
+
+GET https://subscriptionsample.webhookie.com/actuator/health
+
+###
+
+POST https://subscriptionsample.webhookie.com/whatever/200
+Content-Type: application/json
+
+{
+  "hello": "world"
+}
+
+###
+
+POST https://subscriptionsample.webhookie.com/callback
+Content-Type: application/json
+
+{
+  "hello": "world"
+}
+
+###
+
+POST https://subscriptionsample.webhookie.com/callback?delay=5
+Content-Type: application/json
+
+{
+  "hello": "world"
+}
+
+###
+
+POST http://localhost:9000/callback/200
+Content-Type: application/json
+
+{
+  "hello": "world"
+}

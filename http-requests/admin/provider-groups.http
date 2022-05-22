@@ -1,0 +1,60 @@
+POST {{host}}/admin/providergroups
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Provider Group 1",
+    "description": "SAP Team",
+    "iamGroupName": "Webhookie_Provider1"
+}
+
+> extract-provider-id.js
+
+###
+
+DELETE {{host}}/admin/providergroups/601e5f8cf88a4521d236e834
+Accept: text/plain
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+PUT {{host}}/admin/providergroups/{{provider_group_id}}
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Provider Group 11",
+    "description": "Auth0 Provider Group 11",
+    "iamGroupName": "Provider Group 11"
+}
+
+###
+
+GET {{host}}/admin/providergroups
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/admin/providergroups/{{provider_group_id}}
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+
+POST {{host}}/home
+Accept: text/plain
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Provider Group 3",
+    "addr": "",
+    "iamGroupName": "Provider Group 3"
+}
+

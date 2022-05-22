@@ -1,0 +1,58 @@
+POST http://{{host}}/webhookgroups
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+< wh_group_yaml.json
+> extract-id.js
+
+###
+
+GET http://{{host}}/webhookgroups
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+
+GET http://{{host}}/webhookgroups/summary
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET http://{{host}}/webhookgroups/byTopic?topic=NewOrder
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+
+GET http://{{host}}/webhookgroups/{{webhook_group_id}}
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+DELETE http://{{host}}/webhookgroups/{{webhook_group_id}}
+Accept: text/plain
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+PUT http://{{host}}/webhookgroups/{{webhook_group_id}}
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+< put-wh_group_yaml.json
+
+###
+
+POST http://{{host}}/portal/admin/webhookgroups
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+< wh_group.json

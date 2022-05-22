@@ -1,0 +1,54 @@
+POST {{host}}/applications
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "My App 2",
+    "consumerGroups": ["Customers", "Suppliers"]
+}
+
+> ./extract-application-id.js
+
+###
+
+GET {{host}}/applications
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host}}/applications/60693d267d20714da6cff069
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+DELETE {{host}}/applications/{{application_id}}
+Accept: text/plain
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+PUT {{host}}/applications/{{application_id}}
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Products Application 1",
+    "description": "Sample Application!",
+    "consumerGroups": [
+        "Consumer Group 0",
+        "Consumer Group 1",
+        "Consumer Group 2",
+        "Consumer Group 3",
+        "Consumer Group 4",
+        "aaa",
+        "Provider Group 1"
+    ]
+}
+
+###
+
